@@ -14,3 +14,5 @@ Create a legend that will provide context for map data.
 
 
 
+Illustrate the relationship between tectonic plates and seismic activity. Pull in a second data set and visualize it along side the original set of data. 
+
