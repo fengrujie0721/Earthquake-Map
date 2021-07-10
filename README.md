@@ -35,3 +35,9 @@ Greyscale Map
 
 Outdoors Map
 
+
+![image](https://user-images.githubusercontent.com/79819331/125177360-1ac87700-e1a9-11eb-8bdf-e02eda4c9e99.png)
+ 
+ 
+ Layer Control
+
