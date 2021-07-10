@@ -10,4 +10,7 @@ Include popups that provide additional information about the earthquake when a m
 
 Create a legend that will provide context for map data.
 
+![image](https://user-images.githubusercontent.com/79819331/125177207-d9839780-e1a7-11eb-8f28-a83d439131b7.png)
+
+
 
