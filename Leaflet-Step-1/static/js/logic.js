@@ -1,7 +1,10 @@
+// Perform an API call to the tectonic data endpoint
 d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json").then(function(tectonicData){
+    // Perform an API call to the earthquake data endpoint
     d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(function(data){
       
     var earthquakeMarkers=[];
+    // loop through earthquake data to get the depths of earthquakes
     for (var i=0;i<data.features.length;i++){
         var color="";
         if(data.features[i].geometry.coordinates[2]>=90){
