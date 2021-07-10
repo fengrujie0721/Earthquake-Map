@@ -83,30 +83,31 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
             id: "outdoors-v10",
             accessToken: API_KEY
           });
-        //   
+    //Define a baseMap object to hold base layers
     var baseMaps={
             "Satellite":satellitemap,
             "Grayscale":grayscalemap,
             "Outdoors":outdoorsmap
     
         };
+    // Create overlay objects to hold overlay layer
     var earthquake=L.layerGroup(earthquakeMarkers);
     var tectonic=L.layerGroup(tectonicLine);
     var overlayMaps={
             'Tectonic Plates' :tectonic,
             Earthquakes:earthquake
         };
-        
+    // Create the map, giving it satellitemap, earthquake and tectonic layers to display
     var myMap=L.map("map",{
             center:[37.09,-95.71],
             zoom:5,
             layers:[satellitemap,earthquake,tectonic]
         });
-        
+    //Create a layer control, pass in baseMaps and overlay layers 
     L.control.layers(baseMaps,overlayMaps,{
             collapsed:false
         }).addTo(myMap);
-    
+    // Create legend to indicate the color of the circle marker
     var legend=L.control({position:"bottomright"});
     legend.onAdd=function(){
         
