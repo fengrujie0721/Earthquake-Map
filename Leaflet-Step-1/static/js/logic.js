@@ -38,41 +38,25 @@
             // create popup for each earthquake
         }).bindPopup("<h>"+data.features[i].properties.place+
         "</h3><hr><p>"+ new Date(data.features[i].properties.time)+"</p>"));
-      
     }
-    
-    
-              
-    
     //  create the tile layer that will be the background of the map
-    var satellitemap=L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+    var greyscalemap=L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
             attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
             tileSize:512,
             maxZoom: 18,
             zoomOffset: -1,
             id: "light-v10",
             accessToken: API_KEY
-          });
+          });           
     
-           
-    //Define a baseMap object to hold base layers
-    var baseMaps={
-            "Satellite":satellitemap,
-            
-    
-        };
     // Create overlay objects to hold overlay layer
     var earthquake=L.layerGroup(earthquakeMarkers);
     
-    var overlayMaps={
-            
-            Earthquakes:earthquake
-        };
     // Create the map, giving it satellitemap, earthquake and tectonic layers to display
     var myMap=L.map("map",{
             center:[37.09,-95.71],
             zoom:5,
-            layers:[satellitemap,earthquake]
+            layers:[greyscalemap,earthquake]
         });
    
     // Create legend to indicate the color of the circle marker
@@ -92,9 +76,7 @@
             +"<li style=\"background-color:"+categories[2]+"\"></li>  "+"30--50"+"<br>"
             +"<li style=\"background-color:"+categories[3]+"\"></li>  "+"50--70"+"<br>"
             +"<li style=\"background-color:"+categories[4]+"\"></li>  "+"70--90"+"<br>"
-            +"<li style=\"background-color:"+categories[5]+"\"></li>  "+"90+"+"<br>");
-
-        
+            +"<li style=\"background-color:"+categories[5]+"\"></li>  "+"90+"+"<br>");      
         
          div.innerHTML="<ul>"+labels.join("")+"</ul>";   
         return div;
