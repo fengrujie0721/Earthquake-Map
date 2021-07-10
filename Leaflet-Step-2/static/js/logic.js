@@ -102,11 +102,11 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
             zoom:5,
             layers:[satellitemap,earthquake,tectonic]
         });
-        
+    //Create a layer control, pass in the baseMaps and overlay layers 
     L.control.layers(baseMaps,overlayMaps,{
             collapsed:false
         }).addTo(myMap);
-    
+    // Create legend to indicate the color of circle marker
     var legend=L.control({position:"bottomright"});
     legend.onAdd=function(){
         
