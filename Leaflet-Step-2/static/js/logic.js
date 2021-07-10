@@ -1,4 +1,6 @@
+// Perform an API call to tectonic data endpoint
 d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json").then(function(tectonicData){
+    // Perform an API call to earthquake data endpoint
     d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(function(data){
       
     var earthquakeMarkers=[];
