@@ -60,7 +60,7 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
                     }))
             }   
     }
-     
+    //  create the tile layer that will be the background of the map
     var satellitemap=L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
             attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
             tileSize:512,
@@ -69,18 +69,21 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
             id: "satellite-v9",
             accessToken: API_KEY
           });
+    // create the tile layer for background of the mao
     var grayscalemap=L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
             attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
             maxZoom: 18,
             id: "light-v10",
             accessToken: API_KEY
           });
+    // create the tile layer that will be the background of the map
     var outdoorsmap=L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
             attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
             maxZoom: 18,
             id: "outdoors-v10",
             accessToken: API_KEY
           });
+        //   
     var baseMaps={
             "Satellite":satellitemap,
             "Grayscale":grayscalemap,
@@ -90,7 +93,7 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
     var earthquake=L.layerGroup(earthquakeMarkers);
     var tectonic=L.layerGroup(tectonicLine);
     var overlayMaps={
-            Tectonic:tectonic,
+            'Tectonic Plates' :tectonic,
             Earthquakes:earthquake
         };
         
