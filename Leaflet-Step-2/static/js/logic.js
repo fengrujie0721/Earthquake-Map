@@ -2,9 +2,10 @@
 d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json").then(function(tectonicData){
     // Perform an API call to earthquake data endpoint
     d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(function(data){
-      
+    //  loop through earthquake data to get earthquake depth 
     var earthquakeMarkers=[];
     for (var i=0;i<data.features.length;i++){
+        // set color of circle marker according to depths of earthquakes
         var color="";
         if(data.features[i].geometry.coordinates[2]>=90){
             color="#FF0D0D";
@@ -24,6 +25,7 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
         else if(data.features[i].geometry.coordinates[2]<10&&data.features[i].geometry.coordinates[2]>=-10){
             color="#69B34C";
         }
+        // Create circle markers for each earthquake location
         earthquakeMarkers.push(
         L.circleMarker([data.features[i].geometry.coordinates[1],data.features[i].geometry.coordinates[0]],{
             radius:data.features[i].properties.mag*5,
@@ -33,15 +35,17 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
             fillColor:color,
             fillOpacity:0.9,
             stroke:false
+            // create popup for information of the earthquake
         }).bindPopup("<h>"+data.features[i].properties.place+
         "</h3><hr><p>"+ new Date(data.features[i].properties.time)+"</p>"));
       
     }
+    // loop through tectonic data to get the coordinates
     var tectonicLine=[];
     for (i=0;i<tectonicData.features.length;i++){
         
             var line=tectonicData.features[i].geometry.coordinates;
-            
+            // converse the latitude and longitude of the coordinates
             for (j=0;j<line.length;j++){
                 
                 var line1=[line[j][1],line[j][0]];
