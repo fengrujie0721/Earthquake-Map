@@ -7,6 +7,7 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
     // loop through earthquake data to get the depths of earthquakes
     for (var i=0;i<data.features.length;i++){
         var color="";
+        // set marker color according to the depth of the earthquake
         if(data.features[i].geometry.coordinates[2]>=90){
             color="#FF0D0D";
         }
@@ -25,6 +26,7 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
         else if(data.features[i].geometry.coordinates[2]<10&&data.features[i].geometry.coordinates[2]>=-10){
             color="#69B34C";
         }
+        // create circle marker for each earthquake location
         earthquakeMarkers.push(
         L.circleMarker([data.features[i].geometry.coordinates[1],data.features[i].geometry.coordinates[0]],{
             radius:data.features[i].properties.mag*5,
@@ -34,41 +36,31 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
             fillColor:color,
             fillOpacity:0.9,
             stroke:false
+            // create popup for each earthquake
         }).bindPopup("<h>"+data.features[i].properties.place+
         "</h3><hr><p>"+ new Date(data.features[i].properties.time)+"</p>"));
       
     }
     var tectonicLine=[];
+    // loop through tectonic data to get the coordinates
     for (i=0;i<tectonicData.features.length;i++){
         
             var line=tectonicData.features[i].geometry.coordinates;
-            
+            // reverse the latitude and longitude of the coordinates
             for (j=0;j<line.length;j++){
                 
                 var line1=[line[j][1],line[j][0]];
-                
+                // create polygon for tectonic plate boundaries
                 tectonicLine.push(
                     L.polygon([line1],{
                         color:"orange",
                         fillcolor:"orange",
                         fillOpacity:'0.95',
-                        weight:'10',
-                       
-                        
+                        weight:'10',  
                     }))
-            }
-                
-            
-            
-    
-            
-            
-        
-        
+            }   
     }
-    
-    
-    
+     
     var satellitemap=L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
             attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
             tileSize:512,
