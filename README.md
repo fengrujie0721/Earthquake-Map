@@ -31,3 +31,7 @@ Satallite Map
 Greyscale Map
 
 
+![image](https://user-images.githubusercontent.com/79819331/125177330-df2dad00-e1a8-11eb-8347-32a0900d0692.png)
+
+Outdoors Map
+
