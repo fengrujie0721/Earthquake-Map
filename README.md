@@ -24,4 +24,10 @@ Add layer controls to our map.
 
 ![image](https://user-images.githubusercontent.com/79819331/125177242-2ff0d600-e1a8-11eb-94e3-92bbe01fcab5.png)
 
+Satallite Map
+
+![image](https://user-images.githubusercontent.com/79819331/125177262-56af0c80-e1a8-11eb-832b-8518cf274d08.png)
+
+Greyscale Map
+
 
