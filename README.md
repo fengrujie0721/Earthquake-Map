@@ -16,3 +16,12 @@ Create a legend that will provide context for map data.
 
 Illustrate the relationship between tectonic plates and seismic activity. Pull in a second data set and visualize it along side the original set of data. 
 
+
+Add a number of base maps to choose from as well as separate out our two different data sets into overlays that can be turned on and off independently.
+
+
+Add layer controls to our map.
+
+![image](https://user-images.githubusercontent.com/79819331/125177242-2ff0d600-e1a8-11eb-94e3-92bbe01fcab5.png)
+
+
