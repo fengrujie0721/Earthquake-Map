@@ -36,8 +36,8 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
             fillOpacity:0.9,
             stroke:false
             // create popup for information of the earthquake
-        }).bindPopup("<h>"+data.features[i].properties.place+
-        "</h3><hr><p>"+ new Date(data.features[i].properties.time)+"</p>"));
+        }).bindPopup("Place: "+data.features[i].properties.place+
+        "<hr>Time: "+ new Date(data.features[i].properties.time)+"<br>Magnitude: "+data.features[i].properties.mag+"<br>Depth: "+data.features[i].geometry.coordinates[2]));
       
     }
     // loop through tectonic data to get the coordinates
@@ -118,7 +118,9 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
         div.innerHTML=legendInfo;
        
             labels.push(
-            "<li style=\"background-color:"+categories[0]+"\"></li>   "+"-10--10"+"<br>"
+                "Earthquake Depth: <br>"
+                
+            +"<li style=\"background-color:"+categories[0]+"\"></li>   "+"-10--10"+"<br>"
             +"<li style=\"background-color:"+categories[1]+"\"></li>  "+"10--30"+"<br>"
             +"<li style=\"background-color:"+categories[2]+"\"></li>  "+"30--50"+"<br>"
             +"<li style=\"background-color:"+categories[3]+"\"></li>  "+"50--70"+"<br>"
